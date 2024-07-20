@@ -7,9 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        "top-color":  "#C9C4B8",
+        "top-color":  "#C9C4B8", 
         "bottom-color":  "#f8fafc",
         
+      },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
       },
     },
   },
