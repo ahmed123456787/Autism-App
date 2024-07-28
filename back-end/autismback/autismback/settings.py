@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework' , 
     "autism_predictor",
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -76,9 +77,14 @@ WSGI_APPLICATION = 'autismback.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        'NAME': 'autism_screening',
+        'USER': 'postgres',
+        'PASSWORD': 'ahmed',
+        'HOST': 'localhost',
+        'PORT': '5433',
+        
     }
 }
 
