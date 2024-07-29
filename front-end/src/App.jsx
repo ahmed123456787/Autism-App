@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<FormChoice />} />
         <Route path="/ShortForm" element={<ShortForm />} />
         <Route path="/LongForm" element={<LongForm />} />
+        <Route path="/ScannerResult" element={<ScannerResult />} />
       </Routes>
     </Router>
   );
