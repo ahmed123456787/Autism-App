@@ -3,11 +3,10 @@ import backgroundImage from "./../assets/doctor.png";
 import maleIcon from "./../assets/male.png";
 import femaleIcon from "./../assets/female.png";
  
-export default function Information() {
-  
-  return (
 
-  
+export default function Information() {    
+  return ( 
+
     <div className='min-h-screen flex flex-col'>
         <div className="flex-1 bg-top-color flex flex-col justify-around ">
            <h1 className="text-black text-base sm:text-lg md:text-2xl lg:text-3xl py-7 sm:pr-16 flex justify-around">

@@ -9,30 +9,13 @@ export default function ShortForm() {
   const GoFormChoice = ()=>{navigate('/');};
   const GoResult = ()=>{navigate('/ScannerResult');};
   const GoShortFrom = ()=>{navigate('/ShortFrom');};
-  const ShortQue = new Array();
+  const ShortQue = ['• Does your child look at you when you call his or her name?', '• Does your baby seem interested in other babies his or her age?', '• When you are pointing at something, does your child follow your gaze to see what you are pointing at?', '• Is your child able to start a social exchange with other children?', '• Does your child often appear as if he is in his own world?', '• When your child expresses his/her feelings, for instance by crying or smiling, is that mostly on expected and appropriate moments?', '• When your child has been left alone for some time, does he/she try to attract your attention, for instance by crying or calling?', '• Does your child react when spoken to, for instance, by looking, listening, smiling, speaking or babbling?', '• Does your child ever use his/her index finger to point, to indicate interest in something?', '• Does your baby try to get your attention to show you something interesting?', '• Does your baby ignore loud or startling sounds?', '• Is your child sensitive to painful experiences such as hitting his or her head?', '• Does your child react in a normal way to sensory stimulation, such as (coldness, warmth), light, sound, pain or tickling?', '• Does your child watch rotating objects such as a fan or wheels for long periods', '• Does your baby rock his or her body back and forth over and over?', '• Does your baby get stuck doing a simple activity over and over?', '• Does your baby seem to get stuck on playing with a part of a toy (such as an eyeball, label, wheel or tag), instead of the whole toy?', '• Does your child ever pretend, for example, to make a cup of tea using a toy cup and teapot, or pretend other things?', '• Does your child copy you by washing dishes, pretending to cook or take out the garbage, etc.?', '• Does your child imitate your facial gestures', '• Does your baby easily joins when you introduce him/her to a new game (like peek-a-boo etc.)', '• Does your child, on his/her own accord, ever bring objects over to you or show you something?', '• If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (e.g. stroking hair, hugging them)', '• Does your child show affection by cuddling up to you?', '• Does your child smile when you praise him/her? 0 1 2 3', '• In new or strange situations, does your baby look at your face for comfort?']
   const [ShortQueindex, setShortQueindex] = useState(0);
   let Answer = new Array(ShortQue.length);
   const handleChange = (event) => {
     setValue(Number(event.target.value));
   };
-
-  async function fetchData() {
-    try {
-      const response = await fetch('http://127.0.0.1:8000/api/v1/short-questions');
-      const data = await response.json();
-      const questions = data.map(item => item.announcement);
-      ShortQue.push(...questions);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
   
-  fetchData();
-  (async () => {
-      await fetchData();
-      //console.log(ShortQue); 
-      
-    })();
 
   const choices = ['Strongly disagree', 'Disagree', 'Not sure', 'Agree', 'Strongly agree'];
   return (
@@ -98,6 +81,7 @@ export default function ShortForm() {
                 break;
             }
             if (ShortQueindex < ShortQue.length - 1) {
+              console.log(Answer[ShortQueindex]);
               setShortQueindex(ShortQueindex + 1);
             } else {
               GoResult();
@@ -112,4 +96,3 @@ export default function ShortForm() {
     </div>
   );
 }
-
